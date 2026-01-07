@@ -1,4 +1,6 @@
 # MEGIS_Ba_Wue
 
-## Initializing - Installing Python and Anaconda if not yet done
-**https://www.anaconda.com/download**
+## 1. Initializing - Installing Python and Anaconda if not yet done
+Miniconda is recommended, download from here: 
+**https://www.anaconda.com/docs/getting-started/miniconda/main#is-miniconda-free-for-me**
+
