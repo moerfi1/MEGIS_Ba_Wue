@@ -15,12 +15,12 @@ from rasterio.transform import from_origin
 from rasterio.warp import reproject, Resampling
 
 
-las_file_path = sys.argv[1]
-tif_dtm_path = sys.argv[2]
+las_file_path = str(sys.argv[1])
+tif_dtm_path = str(sys.argv[2])
 
 height_cutoff = float(sys.argv[3])
 pxl_size = float(sys.argv[4])
-interpolation = sys.argv[5]
+interpolation = str(sys.argv[5])
 epsg_code = int(sys.argv[6])
 no_data_value = float(sys.argv[7])
 perc_clip = float(sys.argv[8])
