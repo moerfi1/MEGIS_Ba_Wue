@@ -8,6 +8,7 @@ Created on Tue Jan  6 15:06:00 2026
 import pandas as pd
 import numpy as np
 import sys
+import os
 
 import laspy 
 import rasterio
@@ -24,8 +25,6 @@ interpolation = str(sys.argv[5])
 epsg_code = int(sys.argv[6])
 no_data_value = float(sys.argv[7])
 perc_clip = float(sys.argv[8])
-
-
 
 
 def _point_to_raster_converter(x, y, data, cutoff = None, pxl_size = 0.1, interpolation = 'percentile', percentile = 95, epsg_code = 31287, no_data_value = -9999.9999, perc_clip = None, output_path = None):
@@ -434,8 +433,10 @@ def main(las_file_path, tif_dtm_path, height_cutoff = None, pixel_size = 0.1, in
                                     perc_clip = perc_clip, 
                                     output_path = rgb_path)
     
-    print('Start alignment of DSM and DTM to each other...')
-    _combine_DTM_with_calculated_DSM(tif_dtm_path, dsm_path, com_path)
+    if os.path.exists(tif_dtm_path):
+        print('Start alignment of DSM and DTM to each other...')
+        _combine_DTM_with_calculated_DSM(tif_dtm_path, dsm_path, com_path)
+    print('Finished all tasks!')
 
 
 if __name__ == '__main__':
